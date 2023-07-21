@@ -16,3 +16,23 @@ function calculate() {
     resultDisplay.textContent = "= Error";
   }
 }
+
+// Function to initialize the calculator
+function initializeCalculator() {
+  const buttons = document.querySelectorAll(
+    '.buttons-container input[type="button"]'
+  );
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const value = button.value;
+      if (value === "=") {
+        calculate();
+      } else {
+        addToCalculation(value);
+      }
+    });
+  });
+}
+
+// Call the initializeCalculator function when the DOM is loaded
+document.addEventListener("DOMContentLoaded", initializeCalculator);
